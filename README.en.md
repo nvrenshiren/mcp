@@ -28,37 +28,6 @@
 |---------|-------------|---------|
 | [`@dawipong/mcp-pixabay`](packages/pixabay) | Search free images & videos via the [Pixabay API](https://pixabay.com/api/docs/) | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-pixabay.svg)](https://www.npmjs.com/package/@dawipong/mcp-pixabay) |
 
-## 🚀 Quick start
-
-### Use in Claude Desktop / Cursor
-
-Add to your MCP config (`claude_desktop_config.json` or the equivalent for your client):
-
-```json
-{
-  "mcpServers": {
-    "pixabay": {
-      "command": "npx",
-      "args": ["-y", "@dawipong/mcp-pixabay"],
-      "env": {
-        "PIXABAY_API_KEY": "your-key-here"
-      }
-    }
-  }
-}
-```
-
-Restart the client and the `pixabay` tools will appear. Get a free API key at <https://pixabay.com/api/docs/>.
-
-### Local development
-
-```bash
-pnpm install
-pnpm build
-pnpm typecheck
-pnpm test
-```
-
 ## 🏗️ Repository layout
 
 ```
