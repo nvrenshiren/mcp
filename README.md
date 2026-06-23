@@ -28,44 +28,6 @@
 |------|------|------|
 | [`@dawipong/mcp-pixabay`](packages/pixabay) | 调 [Pixabay API](https://pixabay.com/api/docs/) 搜免费图片/视频 | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-pixabay.svg)](https://www.npmjs.com/package/@dawipong/mcp-pixabay) |
 
-## 🚀 快速开始
-
-### 在 Claude Desktop / Cursor 中使用
-
-在 MCP 配置文件 (`claude_desktop_config.json` 或对应客户端配置) 中加入:
-
-```json
-{
-  "mcpServers": {
-    "pixabay": {
-      "command": "npx",
-      "args": ["-y", "@dawipong/mcp-pixabay"],
-      "env": {
-        "PIXABAY_API_KEY": "your-key-here"
-      }
-    }
-  }
-}
-```
-
-重启客户端,`pixabay` 服务的工具就会出现在 AI 可调用列表里。Pixabay API key 免费注册:<https://pixabay.com/api/docs/>。
-
-### 本地开发
-
-```bash
-# 安装依赖 (会装到 root + 所有 workspace)
-pnpm install
-
-# 构建全部服务
-pnpm build
-
-# 类型检查
-pnpm typecheck
-
-# 跑测试
-pnpm test
-```
-
 ## 🏗️ 仓库结构
 
 ```

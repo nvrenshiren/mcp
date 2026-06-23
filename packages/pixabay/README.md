@@ -21,9 +21,29 @@
 
 到 [pixabay.com](https://pixabay.com/accounts/register/) 注册账号,登录后在 [API 文档页](https://pixabay.com/api/docs/) 顶部能看到你的 key。
 
-### 2. 加到 MCP 客户端配置
+### 2. 安装
 
-**Claude Desktop** (`claude_desktop_config.json`):
+```bash
+# 全局安装(推荐 — 会把 mcp-pixabay 命令注册到 PATH)
+npm install -g @dawipong/mcp-pixabay
+# 或
+pnpm add -g @dawipong/mcp-pixabay
+
+# 不装也行,直接 npx 跑(下面的 AI 工具配置默认走 npx)
+npx -y @dawipong/mcp-pixabay --help
+```
+
+> 下面所有 AI 工具配置示例都用 `npx -y @dawipong/mcp-pixabay` — **不用先全局安装**。如果你已经全局装,可以把 `npx -y @dawipong/mcp-pixabay` 换成 `mcp-pixabay`。
+
+### 3. 接入 AI 工具
+
+任选你常用的客户端,把对应片段加进配置文件,**把 `your-key-here` 替换成你的 Pixabay API key**,然后**重启客户端**让 MCP server 重新加载。
+
+#### Claude Desktop
+
+配置文件:
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
@@ -39,9 +59,91 @@
 }
 ```
 
-重启客户端,上面 4 个工具就会出现在 AI 可调用列表里。
+#### Cursor
 
-### 3. 用起来
+**Settings → Features → Model Context Protocol → Add new global MCP server**,或编辑 `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "pixabay": {
+      "command": "npx",
+      "args": ["-y", "@dawipong/mcp-pixabay"],
+      "env": {
+        "PIXABAY_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
+
+#### Claude Code (CLI)
+
+```bash
+claude mcp add pixabay \
+  -e PIXABAY_API_KEY=your-key-here \
+  -- npx -y @dawipong/mcp-pixabay
+```
+
+> 想删:`claude mcp remove pixabay`
+
+#### Windsurf
+
+`~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "pixabay": {
+      "command": "npx",
+      "args": ["-y", "@dawipong/mcp-pixabay"],
+      "env": {
+        "PIXABAY_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
+
+#### OpenCode
+
+配置文件:
+- 项目级: `<project>/opencode.json`
+- 全局: `~/.config/opencode/config.json`
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "pixabay": {
+      "type": "local",
+      "command": ["npx", "-y", "@dawipong/mcp-pixabay"],
+      "environment": {
+        "PIXABAY_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
+
+#### Codex CLI (OpenAI)
+
+配置文件:`~/.codex/config.toml`(TOML 不是 JSON):
+
+```toml
+[mcp_servers.pixabay]
+command = "npx"
+args = ["-y", "@dawipong/mcp-pixabay"]
+env = { PIXABAY_API_KEY = "your-key-here" }
+```
+
+或一行命令:
+
+```bash
+codex mcp add pixabay --env PIXABAY_API_KEY=your-key-here -- npx -y @dawipong/mcp-pixabay
+```
+
+### 4. 用起来
 
 > "帮我找 5 张横构图的山景照片。"
 

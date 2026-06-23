@@ -21,9 +21,29 @@
 
 Sign up at [pixabay.com](https://pixabay.com/accounts/register/). After logging in, your key is shown at the top of the [API docs page](https://pixabay.com/api/docs/).
 
-### 2. Wire it into your MCP client
+### 2. Install
 
-**Claude Desktop** (`claude_desktop_config.json`):
+```bash
+# Global install (recommended — adds `mcp-pixabay` to your PATH)
+npm install -g @dawipong/mcp-pixabay
+# or
+pnpm add -g @dawipong/mcp-pixabay
+
+# Or skip the install and run directly via npx (used in the configs below)
+npx -y @dawipong/mcp-pixabay --help
+```
+
+> Every config snippet below uses `npx -y @dawipong/mcp-pixabay`, so you don't need a global install. If you did install globally, swap `npx -y @dawipong/mcp-pixabay` for `mcp-pixabay`.
+
+### 3. Wire it into your AI client
+
+Pick your client, paste the matching snippet into its config file, **replace `your-key-here` with your Pixabay API key**, then **restart the client** so the MCP server reloads.
+
+#### Claude Desktop
+
+Config file:
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
@@ -39,9 +59,91 @@ Sign up at [pixabay.com](https://pixabay.com/accounts/register/). After logging 
 }
 ```
 
-Restart the client. The four tools above will appear in the AI's tool list.
+#### Cursor
 
-### 3. Use it
+**Settings → Features → Model Context Protocol → Add new global MCP server**, or edit `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "pixabay": {
+      "command": "npx",
+      "args": ["-y", "@dawipong/mcp-pixabay"],
+      "env": {
+        "PIXABAY_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
+
+#### Claude Code (CLI)
+
+```bash
+claude mcp add pixabay \
+  -e PIXABAY_API_KEY=your-key-here \
+  -- npx -y @dawipong/mcp-pixabay
+```
+
+> To remove: `claude mcp remove pixabay`
+
+#### Windsurf
+
+`~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "pixabay": {
+      "command": "npx",
+      "args": ["-y", "@dawipong/mcp-pixabay"],
+      "env": {
+        "PIXABAY_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
+
+#### OpenCode
+
+Config file:
+- project: `<project>/opencode.json`
+- global: `~/.config/opencode/config.json`
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "pixabay": {
+      "type": "local",
+      "command": ["npx", "-y", "@dawipong/mcp-pixabay"],
+      "environment": {
+        "PIXABAY_API_KEY": "your-key-here"
+      }
+    }
+  }
+}
+```
+
+#### Codex CLI (OpenAI)
+
+Config file: `~/.codex/config.toml` (TOML, not JSON):
+
+```toml
+[mcp_servers.pixabay]
+command = "npx"
+args = ["-y", "@dawipong/mcp-pixabay"]
+env = { PIXABAY_API_KEY = "your-key-here" }
+```
+
+Or via one-liner:
+
+```bash
+codex mcp add pixabay --env PIXABAY_API_KEY=your-key-here -- npx -y @dawipong/mcp-pixabay
+```
+
+### 4. Use it
 
 > "Find me 5 horizontal mountain photos."
 
