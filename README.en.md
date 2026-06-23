@@ -27,6 +27,7 @@
 | Package | Description | Version |
 |---------|-------------|---------|
 | [`@dawipong/mcp-pixabay`](packages/pixabay) | Search free images & videos via the [Pixabay API](https://pixabay.com/api/docs/) | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-pixabay.svg)](https://www.npmjs.com/package/@dawipong/mcp-pixabay) |
+| [`@dawipong/mcp-undraw`](packages/undraw) | Fetch [unDraw](https://undraw.co/)'s 1700+ open-source SVG illustrations, with recoloring; no API key needed | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-undraw.svg)](https://www.npmjs.com/package/@dawipong/mcp-undraw) |
 
 ## 🏗️ Repository layout
 

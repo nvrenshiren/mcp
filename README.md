@@ -27,6 +27,7 @@
 | 包名 | 说明 | 版本 |
 |------|------|------|
 | [`@dawipong/mcp-pixabay`](packages/pixabay) | 调 [Pixabay API](https://pixabay.com/api/docs/) 搜免费图片/视频 | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-pixabay.svg)](https://www.npmjs.com/package/@dawipong/mcp-pixabay) |
+| [`@dawipong/mcp-undraw`](packages/undraw) | 拉 [unDraw](https://undraw.co/) 1700+ 开源 SVG 插画,支持染色,无需 API key | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-undraw.svg)](https://www.npmjs.com/package/@dawipong/mcp-undraw) |
 
 ## 🏗️ 仓库结构
 
