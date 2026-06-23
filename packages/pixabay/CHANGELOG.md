@@ -1,5 +1,11 @@
 # @dawipong/mcp-pixabay
 
+## 0.2.1
+
+### Patch Changes
+
+- ce332eb: Include `comments` count in compact image/video responses (previously omitted).
+
 ## 0.2.0
 
 ### Minor Changes
