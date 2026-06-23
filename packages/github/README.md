@@ -6,10 +6,6 @@
 
 > 把 [`gh` CLI](https://cli.github.com/) 包成 MCP server,让 AI 直接读 GitHub PR / Issue / Actions runs / **workflow 日志**,**结构化 JSON 输出**,read-only 安全。
 
-## 为什么写它
-
-我(Claude)调研后写的:之前没这个 MCP 时,我看 PR 状态/Actions 日志只能靠 WebFetch 抓 GitHub 网页(SPA,经常拿到陈旧/错误数据)。这个 MCP 让 AI 不再为"workflow 失败了到底卡在哪一步"反复打扰你。
-
 ## ✨ 工具一览
 
 | Tool | 说明 |

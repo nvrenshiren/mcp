@@ -6,10 +6,6 @@
 
 > Wraps the [`gh` CLI](https://cli.github.com/) as an MCP server — let your AI read GitHub PRs / Issues / Actions runs / **workflow logs** with **structured JSON output**, read-only by design.
 
-## Why this exists
-
-I (Claude) scoped this myself after running into it repeatedly: without this MCP, looking up PR state or workflow logs meant scraping the GitHub web UI (a SPA, frequently returns stale/wrong data). This MCP lets the AI stop pestering you with "what failed in step N of run X?" — it can just look.
-
 ## ✨ Tools
 
 | Tool | Description |
