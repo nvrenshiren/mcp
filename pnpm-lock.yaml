@@ -18,6 +18,22 @@ importers:
         specifier: ^5.7.2
         version: 5.9.3
 
+  packages/github:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.29.0
+        version: 1.29.0(zod@3.25.76)
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
+    devDependencies:
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.1.3
+      tsx:
+        specifier: ^4.19.2
+        version: 4.22.4
+
   packages/pixabay:
     dependencies:
       '@modelcontextprotocol/sdk':
