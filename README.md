@@ -1,0 +1,117 @@
+<div align="center">
+
+# mcp
+
+**面向 AI 助手的 MCP (Model Context Protocol) 服务集合**
+
+[![CI](https://github.com/nvrenshiren/mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/nvrenshiren/mcp/actions/workflows/ci.yml)
+[![Release](https://github.com/nvrenshiren/mcp/actions/workflows/release.yml/badge.svg)](https://github.com/nvrenshiren/mcp/actions/workflows/release.yml)
+[![Node](https://img.shields.io/badge/node-%3E%3D20-3c873a)](https://nodejs.org)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![English](https://img.shields.io/badge/lang-English-orange)](README.en.md)
+
+</div>
+
+> 一个 monorepo,装着一组小而专的 MCP 服务,给 Claude、Cursor 等 AI 助手扩展能力用。每个服务独立打包、独立发布到 npm。
+
+## ✨ 特性
+
+- 📦 **Monorepo** — pnpm workspaces 管理,新增服务只需新建子目录
+- 🚀 **独立发布** — 每个服务一个 npm 包,通过 Changesets 自动化版本与发布
+- 🔧 **TypeScript 优先** — 严格 TS、ESM、Node 20+
+- 🧪 **CI 全覆盖** — typecheck / test / build 全自动
+- 📜 **标准 MCP** — 基于官方 `@modelcontextprotocol/sdk`,stdio 传输,即插即用
+
+## 📦 已发布的服务
+
+| 包名 | 说明 | 版本 |
+|------|------|------|
+| [`dawi-mcp-hello`](packages/hello) | 示例服务,演示最小可用的 MCP server | [![npm](https://img.shields.io/npm/v/dawi-mcp-hello.svg)](https://www.npmjs.com/package/dawi-mcp-hello) |
+
+## 🚀 快速开始
+
+### 在 Claude Desktop / Cursor 中使用
+
+在 MCP 配置文件 (`claude_desktop_config.json` 或对应客户端配置) 中加入:
+
+```json
+{
+  "mcpServers": {
+    "hello": {
+      "command": "npx",
+      "args": ["-y", "dawi-mcp-hello"]
+    }
+  }
+}
+```
+
+重启客户端,`hello` 服务的工具就会出现在 AI 可调用列表里。
+
+### 本地开发
+
+```bash
+# 安装依赖 (会装到 root + 所有 workspace)
+pnpm install
+
+# 构建全部服务
+pnpm build
+
+# 类型检查
+pnpm typecheck
+
+# 跑测试
+pnpm test
+```
+
+## 🏗️ 仓库结构
+
+```
+mcp/
+├── packages/              # 所有 MCP 服务,一个目录一个服务
+│   └── hello/             # 示例:dawi-mcp-hello
+│       ├── src/index.ts   # MCP server 入口
+│       ├── package.json   # 独立 npm 包元信息
+│       └── tsconfig.json
+├── .changeset/            # Changesets 版本管理
+├── .github/workflows/     # CI / Release pipeline
+├── tsconfig.base.json     # 所有子包共享的 TS 配置
+└── package.json           # workspace root
+```
+
+## ➕ 新增一个服务
+
+1. 复制 `packages/hello/` 改名,例如 `packages/translate/`
+2. 改 `package.json`:`name` 设成 `dawi-mcp-translate`,`bin` 同名,`description` 改掉
+3. 在 `src/index.ts` 写你的工具
+4. 跑 `pnpm install` 让 workspace 链接生效
+5. `pnpm changeset` 起一次 changeset,提交 PR
+
+## 🧪 测试 & 调试
+
+```bash
+# 单包构建后用 MCP Inspector 调试
+cd packages/hello
+pnpm build
+npx @modelcontextprotocol/inspector node dist/index.js
+```
+
+## 📚 技术栈
+
+- [Model Context Protocol](https://modelcontextprotocol.io/) — Anthropic 提出的 AI 工具协议
+- [@modelcontextprotocol/sdk](https://github.com/modelcontextprotocol/typescript-sdk) — 官方 TS SDK
+- [pnpm workspaces](https://pnpm.io/workspaces) — Monorepo 包管理
+- [Changesets](https://github.com/changesets/changesets) — 版本与发布自动化
+- [TypeScript 5.7](https://www.typescriptlang.org/) + [Zod](https://zod.dev/) — 类型与运行时校验
+
+## 🤝 参与贡献
+
+参见 [CONTRIBUTING.md](CONTRIBUTING.md)。Bug 报告与新服务提案请用 [Issues](https://github.com/nvrenshiren/mcp/issues)。
+
+## 📄 License
+
+[MIT](LICENSE) © nvrenshiren
+
+## 🙏 致谢
+
+- [Anthropic](https://www.anthropic.com/) — 设计并开源了 MCP 协议
+- 所有 MCP 社区贡献者
