@@ -1,6 +1,6 @@
 {
   "name": "@dawipong/mcp-pixabay",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "MCP server for the Pixabay API — search free images and videos from inside any MCP client",
   "keywords": [
     "mcp",
