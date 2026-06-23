@@ -32,16 +32,26 @@ pnpm changeset   # 起一个 changeset (改完代码必做)
 
 ## Commit message 约定
 
-用 [Conventional Commits](https://www.conventionalcommits.org/):
+用 [Conventional Commits](https://www.conventionalcommits.org/),**描述用中文,标识保留英文**:
 
 ```
-feat(hello): add streaming response support
-fix(translate): handle empty input gracefully
-docs: update README quick start
-chore(deps): bump @modelcontextprotocol/sdk to 1.30
+feat(pixabay): 增加缓存 TTL 配置
+fix(pixabay): 修复 search_images 在 network error 时的空指针
+docs(pixabay): 更新 README 添加更多示例
+chore(deps): 升级 @modelcontextprotocol/sdk 到 1.30
 ```
 
-类型: `feat` / `fix` / `docs` / `refactor` / `test` / `chore` / `ci`。
+**保留英文(标识):**
+
+- 类型前缀:`feat` / `fix` / `docs` / `refactor` / `test` / `chore` / `ci`
+- scope(包名):`pixabay` 等
+- 文件名、包名、类名、函数名:`CHANGELOG.md`、`package.json`、`PixabayClient`、`McpServer`
+- 通用技术词:`MCP`、`stdio`、`fetch`、`ESM`、`CI`、`npm`
+
+**写成中文:**
+
+- 动词、形容词、整句描述
+- 业务逻辑解释、原因说明、影响范围
 
 ## 代码风格
 
