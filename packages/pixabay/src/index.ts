@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
@@ -219,7 +219,7 @@ async function main(): Promise<void> {
   console.error("@dawipong/mcp-pixabay running on stdio");
 }
 
-const isDirectRun = import.meta.url === `file://${process.argv[1]}`;
+const isDirectRun = import.meta.url === pathToFileURL(process.argv[1] ?? "").href;
 if (isDirectRun) {
   main().catch((err) => {
     console.error("Fatal:", err);
