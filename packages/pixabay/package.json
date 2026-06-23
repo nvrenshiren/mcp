@@ -1,0 +1,62 @@
+{
+  "name": "@dawipong/mcp-pixabay",
+  "version": "0.2.1",
+  "description": "MCP server for the Pixabay API — search free images and videos from inside any MCP client",
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "ai",
+    "claude",
+    "pixabay",
+    "image-search",
+    "video-search",
+    "stock-photos"
+  ],
+  "author": "nvrenshiren <nvrenshiren@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/nvrenshiren/mcp/tree/master/packages/pixabay#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nvrenshiren/mcp.git",
+    "directory": "packages/pixabay"
+  },
+  "bugs": {
+    "url": "https://github.com/nvrenshiren/mcp/issues"
+  },
+  "type": "module",
+  "bin": {
+    "mcp-pixabay": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "README.en.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx ./test/*.test.ts",
+    "clean": "rimraf dist",
+    "dev": "tsx watch src/index.ts",
+    "inspect": "pnpm build && npx @modelcontextprotocol/inspector node dist/index.js",
+    "prepublishOnly": "pnpm clean && pnpm build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.2"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

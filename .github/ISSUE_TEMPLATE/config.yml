@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Discussions
+    url: https://github.com/nvrenshiren/mcp/discussions
+    about: 提问、想法、新服务提议先到 Discussions
+  - name: 📖 MCP 协议文档
+    url: https://modelcontextprotocol.io/
+    about: 关于 MCP 协议本身的问题,请去官方文档
