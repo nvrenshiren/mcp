@@ -36,6 +36,7 @@ function compactImage(hit: ImageHit) {
     views: hit.views,
     downloads: hit.downloads,
     likes: hit.likes,
+    comments: hit.comments,
     user: hit.user,
   };
   return {
@@ -56,6 +57,7 @@ function compactVideo(hit: VideoHit) {
     views: hit.views,
     downloads: hit.downloads,
     likes: hit.likes,
+    comments: hit.comments,
     user: hit.user,
   };
 }
