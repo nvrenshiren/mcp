@@ -1,34 +1,38 @@
 {
-  "name": "@dawipong/mcp-hello",
+  "name": "@dawipong/mcp-pixabay",
   "version": "0.1.0",
-  "description": "Example MCP server — a minimal hello-world reference implementation",
+  "description": "MCP server for the Pixabay API — search free images and videos from inside any MCP client",
   "keywords": [
     "mcp",
     "modelcontextprotocol",
     "ai",
     "claude",
-    "example"
+    "pixabay",
+    "image-search",
+    "video-search",
+    "stock-photos"
   ],
   "author": "nvrenshiren <nvrenshiren@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/nvrenshiren/mcp/tree/master/packages/hello#readme",
+  "homepage": "https://github.com/nvrenshiren/mcp/tree/master/packages/pixabay#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nvrenshiren/mcp.git",
-    "directory": "packages/hello"
+    "directory": "packages/pixabay"
   },
   "bugs": {
     "url": "https://github.com/nvrenshiren/mcp/issues"
   },
   "type": "module",
   "bin": {
-    "mcp-hello": "./dist/index.js"
+    "mcp-pixabay": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
     "README.md",
+    "README.en.md",
     "LICENSE"
   ],
   "engines": {

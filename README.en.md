@@ -26,7 +26,7 @@
 
 | Package | Description | Version |
 |---------|-------------|---------|
-| [`@dawipong/mcp-hello`](packages/hello) | Example server — minimal working MCP server | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-hello.svg)](https://www.npmjs.com/package/@dawipong/mcp-hello) |
+| [`@dawipong/mcp-pixabay`](packages/pixabay) | Search free images & videos via the [Pixabay API](https://pixabay.com/api/docs/) | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-pixabay.svg)](https://www.npmjs.com/package/@dawipong/mcp-pixabay) |
 
 ## 🚀 Quick start
 
@@ -37,15 +37,18 @@ Add to your MCP config (`claude_desktop_config.json` or the equivalent for your 
 ```json
 {
   "mcpServers": {
-    "hello": {
+    "pixabay": {
       "command": "npx",
-      "args": ["-y", "@dawipong/mcp-hello"]
+      "args": ["-y", "@dawipong/mcp-pixabay"],
+      "env": {
+        "PIXABAY_API_KEY": "your-key-here"
+      }
     }
   }
 }
 ```
 
-Restart the client and the `hello` server's tools will appear.
+Restart the client and the `pixabay` tools will appear. Get a free API key at <https://pixabay.com/api/docs/>.
 
 ### Local development
 
@@ -61,7 +64,7 @@ pnpm test
 ```
 mcp/
 ├── packages/              # one folder per MCP server
-│   └── hello/             # example: @dawipong/mcp-hello
+│   └── pixabay/           # @dawipong/mcp-pixabay
 │       ├── src/index.ts
 │       ├── package.json
 │       └── tsconfig.json
@@ -73,7 +76,7 @@ mcp/
 
 ## ➕ Add a new server
 
-1. Copy `packages/hello/` → `packages/<your-name>/`
+1. Copy `packages/pixabay/` → `packages/<your-name>/`
 2. Edit `package.json`: `name` → `@dawipong/mcp-<your-name>`, `bin` → `mcp-<your-name>`, new `description`
 3. Implement tools in `src/index.ts`
 4. Run `pnpm install` so the workspace links resolve
@@ -82,9 +85,8 @@ mcp/
 ## 🧪 Debug with MCP Inspector
 
 ```bash
-cd packages/hello
-pnpm build
-npx @modelcontextprotocol/inspector node dist/index.js
+cd packages/pixabay
+PIXABAY_API_KEY=xxx pnpm inspect
 ```
 
 ## 📚 Tech stack

@@ -26,7 +26,7 @@
 
 | 包名 | 说明 | 版本 |
 |------|------|------|
-| [`@dawipong/mcp-hello`](packages/hello) | 示例服务,演示最小可用的 MCP server | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-hello.svg)](https://www.npmjs.com/package/@dawipong/mcp-hello) |
+| [`@dawipong/mcp-pixabay`](packages/pixabay) | 调 [Pixabay API](https://pixabay.com/api/docs/) 搜免费图片/视频 | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-pixabay.svg)](https://www.npmjs.com/package/@dawipong/mcp-pixabay) |
 
 ## 🚀 快速开始
 
@@ -37,15 +37,18 @@
 ```json
 {
   "mcpServers": {
-    "hello": {
+    "pixabay": {
       "command": "npx",
-      "args": ["-y", "@dawipong/mcp-hello"]
+      "args": ["-y", "@dawipong/mcp-pixabay"],
+      "env": {
+        "PIXABAY_API_KEY": "your-key-here"
+      }
     }
   }
 }
 ```
 
-重启客户端,`hello` 服务的工具就会出现在 AI 可调用列表里。
+重启客户端,`pixabay` 服务的工具就会出现在 AI 可调用列表里。Pixabay API key 免费注册:<https://pixabay.com/api/docs/>。
 
 ### 本地开发
 
@@ -68,7 +71,7 @@ pnpm test
 ```
 mcp/
 ├── packages/              # 所有 MCP 服务,一个目录一个服务
-│   └── hello/             # 示例:@dawipong/mcp-hello
+│   └── pixabay/           # @dawipong/mcp-pixabay
 │       ├── src/index.ts   # MCP server 入口
 │       ├── package.json   # 独立 npm 包元信息
 │       └── tsconfig.json
@@ -80,7 +83,7 @@ mcp/
 
 ## ➕ 新增一个服务
 
-1. 复制 `packages/hello/` 改名,例如 `packages/translate/`
+1. 复制 `packages/pixabay/` 改名,例如 `packages/translate/`
 2. 改 `package.json`:`name` 设成 `@dawipong/mcp-translate`,`bin` 设成 `mcp-translate`,`description` 改掉
 3. 在 `src/index.ts` 写你的工具
 4. 跑 `pnpm install` 让 workspace 链接生效
@@ -90,9 +93,8 @@ mcp/
 
 ```bash
 # 单包构建后用 MCP Inspector 调试
-cd packages/hello
-pnpm build
-npx @modelcontextprotocol/inspector node dist/index.js
+cd packages/pixabay
+PIXABAY_API_KEY=xxx pnpm inspect
 ```
 
 ## 📚 技术栈
