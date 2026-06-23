@@ -1,7 +1,7 @@
-# dawi-mcp-hello
+# @dawipong/mcp-hello
 
-[![npm](https://img.shields.io/npm/v/dawi-mcp-hello.svg)](https://www.npmjs.com/package/dawi-mcp-hello)
-[![npm downloads](https://img.shields.io/npm/dm/dawi-mcp-hello.svg)](https://www.npmjs.com/package/dawi-mcp-hello)
+[![npm](https://img.shields.io/npm/v/@dawipong/mcp-hello.svg)](https://www.npmjs.com/package/@dawipong/mcp-hello)
+[![npm downloads](https://img.shields.io/npm/dm/@dawipong/mcp-hello.svg)](https://www.npmjs.com/package/@dawipong/mcp-hello)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
 
 > 一个最小可用的 MCP 服务,作为模板和参考实现。新增服务时直接复制这个包改名。
@@ -24,7 +24,7 @@
   "mcpServers": {
     "hello": {
       "command": "npx",
-      "args": ["-y", "dawi-mcp-hello"]
+      "args": ["-y", "@dawipong/mcp-hello"]
     }
   }
 }
@@ -35,14 +35,14 @@
 ### 全局安装
 
 ```bash
-npm install -g dawi-mcp-hello
-dawi-mcp-hello   # 直接启动 stdio 服务,用 MCP 客户端连接
+npm install -g @dawipong/mcp-hello
+mcp-hello   # 直接启动 stdio 服务,用 MCP 客户端连接
 ```
 
 ## 用 Inspector 调试
 
 ```bash
-npx @modelcontextprotocol/inspector npx -y dawi-mcp-hello
+npx @modelcontextprotocol/inspector npx -y @dawipong/mcp-hello
 ```
 
 ## 本地开发
@@ -50,9 +50,9 @@ npx @modelcontextprotocol/inspector npx -y dawi-mcp-hello
 ```bash
 # 在仓库根目录
 pnpm install
-pnpm --filter dawi-mcp-hello dev   # tsx watch
-pnpm --filter dawi-mcp-hello test
-pnpm --filter dawi-mcp-hello build
+pnpm --filter @dawipong/mcp-hello dev   # tsx watch
+pnpm --filter @dawipong/mcp-hello test
+pnpm --filter @dawipong/mcp-hello build
 ```
 
 ## 作为模板新增服务
@@ -60,8 +60,8 @@ pnpm --filter dawi-mcp-hello build
 ```bash
 cp -r packages/hello packages/your-name
 # 编辑 packages/your-name/package.json:
-#   name        → dawi-mcp-your-name
-#   bin 的 key  → dawi-mcp-your-name
+#   name        → @dawipong/mcp-your-name
+#   bin 的 key  → mcp-your-name
 #   description → 你的描述
 # 编辑 src/index.ts,改 server name + 注册你的工具
 pnpm install

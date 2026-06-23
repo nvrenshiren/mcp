@@ -55,7 +55,7 @@ chore(deps): bump @modelcontextprotocol/sdk to 1.30
 参考 [README.md#新增一个服务](README.md#-新增一个服务)。命名规则:
 
 - 目录: `packages/<name>/` (短小、kebab-case)
-- npm 包名: `dawi-mcp-<name>`
+- npm 包名: `@dawipong/mcp-<name>`(scoped 到 `dawipong` org)
 - bin 命令名: 同 npm 包名
 - 必须导出 stdio MCP server,入口写在 `src/index.ts`
 

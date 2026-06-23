@@ -26,7 +26,7 @@
 
 | 包名 | 说明 | 版本 |
 |------|------|------|
-| [`dawi-mcp-hello`](packages/hello) | 示例服务,演示最小可用的 MCP server | [![npm](https://img.shields.io/npm/v/dawi-mcp-hello.svg)](https://www.npmjs.com/package/dawi-mcp-hello) |
+| [`@dawipong/mcp-hello`](packages/hello) | 示例服务,演示最小可用的 MCP server | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-hello.svg)](https://www.npmjs.com/package/@dawipong/mcp-hello) |
 
 ## 🚀 快速开始
 
@@ -39,7 +39,7 @@
   "mcpServers": {
     "hello": {
       "command": "npx",
-      "args": ["-y", "dawi-mcp-hello"]
+      "args": ["-y", "@dawipong/mcp-hello"]
     }
   }
 }
@@ -68,7 +68,7 @@ pnpm test
 ```
 mcp/
 ├── packages/              # 所有 MCP 服务,一个目录一个服务
-│   └── hello/             # 示例:dawi-mcp-hello
+│   └── hello/             # 示例:@dawipong/mcp-hello
 │       ├── src/index.ts   # MCP server 入口
 │       ├── package.json   # 独立 npm 包元信息
 │       └── tsconfig.json
@@ -81,7 +81,7 @@ mcp/
 ## ➕ 新增一个服务
 
 1. 复制 `packages/hello/` 改名,例如 `packages/translate/`
-2. 改 `package.json`:`name` 设成 `dawi-mcp-translate`,`bin` 同名,`description` 改掉
+2. 改 `package.json`:`name` 设成 `@dawipong/mcp-translate`,`bin` 设成 `mcp-translate`,`description` 改掉
 3. 在 `src/index.ts` 写你的工具
 4. 跑 `pnpm install` 让 workspace 链接生效
 5. `pnpm changeset` 起一次 changeset,提交 PR

@@ -32,7 +32,7 @@ body:
     id: proposal
     attributes:
       label: 你的方案
-      description: 描述输入、输出、调用方式。如果是新服务,顺便建议包名 (`dawi-mcp-xxx`)。
+      description: 描述输入、输出、调用方式。如果是新服务,顺便建议包名 (`@dawipong/mcp-xxx`)。
     validations:
       required: true
 

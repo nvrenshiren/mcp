@@ -5,8 +5,8 @@ import { z } from "zod";
 
 export function createServer(): McpServer {
   const server = new McpServer({
-    name: "dawi-mcp-hello",
-    version: "0.0.1",
+    name: "@dawipong/mcp-hello",
+    version: "0.1.0",
   });
 
   server.registerTool(
@@ -44,7 +44,7 @@ async function main(): Promise<void> {
   const server = createServer();
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.error("dawi-mcp-hello running on stdio");
+  console.error("@dawipong/mcp-hello running on stdio");
 }
 
 const isDirectRun = import.meta.url === `file://${process.argv[1]}`;

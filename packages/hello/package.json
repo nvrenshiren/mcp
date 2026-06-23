@@ -1,5 +1,5 @@
 {
-  "name": "dawi-mcp-hello",
+  "name": "@dawipong/mcp-hello",
   "version": "0.1.0",
   "description": "Example MCP server — a minimal hello-world reference implementation",
   "keywords": [
@@ -22,7 +22,7 @@
   },
   "type": "module",
   "bin": {
-    "dawi-mcp-hello": "./dist/index.js"
+    "mcp-hello": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

@@ -26,7 +26,7 @@
 
 | Package | Description | Version |
 |---------|-------------|---------|
-| [`dawi-mcp-hello`](packages/hello) | Example server — minimal working MCP server | [![npm](https://img.shields.io/npm/v/dawi-mcp-hello.svg)](https://www.npmjs.com/package/dawi-mcp-hello) |
+| [`@dawipong/mcp-hello`](packages/hello) | Example server — minimal working MCP server | [![npm](https://img.shields.io/npm/v/@dawipong/mcp-hello.svg)](https://www.npmjs.com/package/@dawipong/mcp-hello) |
 
 ## 🚀 Quick start
 
@@ -39,7 +39,7 @@ Add to your MCP config (`claude_desktop_config.json` or the equivalent for your 
   "mcpServers": {
     "hello": {
       "command": "npx",
-      "args": ["-y", "dawi-mcp-hello"]
+      "args": ["-y", "@dawipong/mcp-hello"]
     }
   }
 }
@@ -61,7 +61,7 @@ pnpm test
 ```
 mcp/
 ├── packages/              # one folder per MCP server
-│   └── hello/             # example: dawi-mcp-hello
+│   └── hello/             # example: @dawipong/mcp-hello
 │       ├── src/index.ts
 │       ├── package.json
 │       └── tsconfig.json
@@ -74,7 +74,7 @@ mcp/
 ## ➕ Add a new server
 
 1. Copy `packages/hello/` → `packages/<your-name>/`
-2. Edit `package.json`: `name` → `dawi-mcp-<your-name>`, matching `bin`, new `description`
+2. Edit `package.json`: `name` → `@dawipong/mcp-<your-name>`, `bin` → `mcp-<your-name>`, new `description`
 3. Implement tools in `src/index.ts`
 4. Run `pnpm install` so the workspace links resolve
 5. Run `pnpm changeset`, commit the resulting file with your PR

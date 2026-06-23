@@ -19,7 +19,7 @@ Closes #
 
 ## 涉及包
 
-- [ ] `dawi-mcp-hello`
+- [ ] `@dawipong/mcp-hello`
 - [ ] 其它: ___
 
 ## 测试 Checklist
