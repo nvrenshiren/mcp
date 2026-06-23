@@ -1,8 +1,14 @@
 #!/usr/bin/env node
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 import { PixabayClient, type ImageHit, type VideoHit } from "./pixabay.js";
+
+const pkg = JSON.parse(
+  readFileSync(fileURLToPath(new URL("../package.json", import.meta.url)), "utf8"),
+) as { name: string; version: string };
 
 const IMAGE_CATEGORIES = [
   "backgrounds", "fashion", "nature", "science", "education", "feelings",
@@ -78,8 +84,8 @@ function errorResult(err: unknown) {
 
 export function createServer(apiKey: string = process.env.PIXABAY_API_KEY ?? ""): McpServer {
   const server = new McpServer({
-    name: "@dawipong/mcp-pixabay",
-    version: "0.1.0",
+    name: pkg.name,
+    version: pkg.version,
   });
 
   let _client: PixabayClient | null = null;
