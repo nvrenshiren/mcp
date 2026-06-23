@@ -1,6 +1,6 @@
 {
   "name": "@dawipong/mcp-undraw",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "MCP server for unDraw — search and fetch free SVG illustrations from inside any MCP client, with auto-refreshing local catalog and on-demand color customization",
   "keywords": [
     "mcp",
